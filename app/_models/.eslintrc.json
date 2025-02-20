@@ -1,0 +1,6 @@
+{
+  "rules": {
+    // Because we don't need to define api response type, we have our own typed Models for all API data
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}

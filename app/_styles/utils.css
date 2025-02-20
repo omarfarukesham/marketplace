@@ -1,0 +1,200 @@
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  /* thin scrollbar */
+  .thin-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .fade-left {
+    /* background: linear-gradient(90deg, rgba(255, 255, 255, 0) -3.44%, #fff 87.24%); */
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 32%, rgba(255, 255, 255, 0) 100%);
+  }
+  .fade-right {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 78%);
+  }
+  .fade-up {
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.8) 80%,
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-in-out;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  .animate-fade-out {
+    animation: fade-out 0.3s ease-in-out;
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-in-out;
+  }
+
+  @keyframes slide-right {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-right {
+    animation: slide-right 0.5s ease-in-out;
+  }
+
+  @keyframes slide-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-left {
+    animation: slide-left 0.5s ease-in-out;
+  }
+}
+
+/** Link Animation **/
+.link-animation {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.link-animation::before,
+.link-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.link-animation::before {
+  /* background-color: #54b3d6; */
+  @apply bg-primary-900;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.link-animation::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 50%;
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+  /* color: #54b3d6; */
+  @apply text-primary-900;
+}
+
+.link-animation:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.link-animation:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.group:hover .link-animation::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+.group:hover .link-animation::after {
+  transform: translate3d(0, 0, 0);
+}
+
+.link-animation span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.link-animation:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+.group:hover .link-animation span {
+  transform: translate3d(-200%, 0, 0);
+}
+
+/* Hide after two rows */
+@media (max-width: 1279px) {
+  .hide-after-two-rows:nth-child(n + 7) {
+    @apply hidden;
+  }
+}
+
+@media (max-width: 1535px) {
+  .hide-after-two-rows:nth-child(n + 9) {
+    @apply hidden;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hide-after-two-rows:nth-child(n + 11) {
+    @apply hidden;
+  }
+}

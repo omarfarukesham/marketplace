@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+
+@layer base {
+  :root {
+    /* swiper pagination customization */
+    --swiper-pagination-bullet-border-radius: 0;
+    --swiper-pagination-bullet-width: 15px;
+    --swiper-pagination-bullet-height: 5px;
+    --swiper-pagination-color: white;
+    --swiper-pagination-bullet-inactive-color: #cccccc;
+  }
+  @media (max-width: 374px) {
+    :root {
+      font-size: 14px;
+    }
+  }
+
+  p,
+  span,
+  li {
+    @apply leading-[130%];
+  }
+
+  li {
+    @apply text-base;
+  }
+
+  /** Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold leading-[120%];
+  }
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  h4 {
+    @apply text-base;
+  }
+  h5 {
+    @apply text-label;
+  }
+  h6 {
+    @apply text-sm;
+  }
+}
+
+@import './utils.css';
